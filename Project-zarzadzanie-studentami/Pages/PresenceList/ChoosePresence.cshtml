@@ -1,0 +1,76 @@
+﻿@page
+@model Project_zarzadzanie_studentami.Pages.PresenceList.ChoosePresenceModel
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="form-group">
+                <label class="control-label" asp-for="SelectedSubjectName">Wybierz przedmiot</label>
+                <select class="form-select" asp-for="SelectedSubjectName" name="SelectedSubjectName">
+                    <option value="">--Wybierz--</option>
+                    @foreach (var subject in Model.Subject)
+                    {
+                        <option value="@subject.Name">@subject.Name</option>
+                    }
+                </select>
+            </div>
+            <br />
+            <label asp-for="@Model.Date">Wybierz Date:</label>
+            <input type="date" asp-for="@Model.Date" />
+            <br />
+            <div class="form-group">
+                
+                    <input asp type="submit" value="Sprawdz" class="btn btn-primary" onclick="GetSelectedSubject" />
+                
+            </div>
+        </form>
+    </div>
+  
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Student
+                    </th>
+                    <th>
+                        Przedmiot
+                    </th>
+                    <th>
+                        Data
+                    </th>
+                    <th>
+                        Obecność
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            @if (Model.Presence != null)
+            {
+            <tbody>
+                @foreach (var item in Model.Presence)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StudentName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SubjectName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PresenceData)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IsPresent)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            }
+
+        </table>
+    </div>
+
+</div>
+

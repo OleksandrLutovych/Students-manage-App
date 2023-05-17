@@ -1,0 +1,31 @@
+﻿@page
+@model Project_zarzadzanie_studentami.Pages.Subjects.DetailsModel
+
+<div>
+    <h4>Subject</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Subject.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Subject.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Subject.TypeOfSubject)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Subject.TypeOfSubject)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Subject.TypeOfPass)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Subject.TypeOfPass)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Subject?.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

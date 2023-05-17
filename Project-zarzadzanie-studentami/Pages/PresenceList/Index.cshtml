@@ -1,0 +1,41 @@
+﻿@page
+@model Project_zarzadzanie_studentami.Pages.PresenceList.IndexModel
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Student
+            </th>
+            <th>
+                Przedmiot
+            </th>
+            <th>
+                Data
+            </th>
+            <th>
+                Obecność
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Presence) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubjectName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PresenceData)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsPresent)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
